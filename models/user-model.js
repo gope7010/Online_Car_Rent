@@ -14,10 +14,21 @@ module.exports = {
 			});
 	},
 	validate: function(user, callback){
-		var sql ="select * from user where username=? and password=?";
+		var sql ="select * from user where name=? and password=?";
 		db.getResults(sql, [user.username, user.password], function(result){
 
 			if(result.length > 0){
+				callback(true);
+			}else{
+				callback(false);
+			}
+		});	
+	},
+	validateadmin: function(user, callback){
+		var sql ="select * from admin where name=? and password=?";
+		db.getResults(sql, [user.username, user.password], function(result){
+
+			if(result.length >0){
 				callback(true);
 			}else{
 				callback(false);
@@ -47,6 +58,13 @@ module.exports = {
 
 		var sql ="insert into admin values('', ?, ?)";
 		db.execute(sql, [user.username, user.password], function(status){
+			callback(status);
+		});
+	},
+	insertcar: function(car, callback){
+
+		var sql ="insert into newcar values('',?, ?, ?)";
+		db.execute(sql, [car.name,car.cost,car.category], function(status){
 			callback(status);
 		});
 	},

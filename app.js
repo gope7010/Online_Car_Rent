@@ -7,6 +7,8 @@ var ejs = require('ejs');
 var login = require('./controllers/login');
 var reg = require('./controllers/reg');
 var home = require('./controllers/home');
+var home = require('./controllers/home');
+var adminhome = require('./controllers/adminhome');
 var user = require('./controllers/user');
 var logout = require('./controllers/logout');
 var app = express();
@@ -23,6 +25,7 @@ app.use('/abc', express.static('xyz'))
 app.use('/login', login);
 app.use('/reg', reg);
 app.use('/home', home);
+app.use('/adminhome', adminhome);
 app.use('/user', user);
 app.use('/logout', logout);
 
