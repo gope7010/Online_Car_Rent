@@ -7,7 +7,11 @@ var ejs = require('ejs');
 var login = require('./controllers/login');
 var reg = require('./controllers/reg');
 var home = require('./controllers/home');
+var add = require('./controllers/add');
+var adminhome = require('./controllers/adminhome');
+var userhome = require('./controllers/userhome');
 var user = require('./controllers/user');
+var carlist = require('./controllers/carlist');
 var logout = require('./controllers/logout');
 var app = express();
 
@@ -23,8 +27,12 @@ app.use('/abc', express.static('xyz'))
 app.use('/login', login);
 app.use('/reg', reg);
 app.use('/home', home);
+app.use('/adminhome', adminhome);
+app.use('/userhome', userhome);
 app.use('/user', user);
 app.use('/logout', logout);
+app.use('/add', add);
+app.use('/carlist', carlist);
 
 
 //ROUTER

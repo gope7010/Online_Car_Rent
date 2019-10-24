@@ -4,32 +4,25 @@ var userModel = require('./../models/user-model');
 var router = express.Router();
 
 
-/*router.get('*', function(request, response, next){
 
-	if(request.cookies['username'] != null){
-		next();
-	}else{
-		response.redirect('/logout');
-	}
 
-});*/
-
-router.get('/adduser', function(request, response){
-	response.render("user/adduser");
+router.get('/newcar', function(request, response){
+	response.render("newcar/addcar");
 });
-router.post('/adduser', function(request, response){
+router.post('/newcar', function(request, response){
 
-	var user = {
-		username: request.body.username,
-		password: request.body.password,
+	var car = {
+		name: request.body.name,
+		cost: request.body.cost,
+		category: request.body.category
 	};
 
-	userModel.insertuser(user, function(status){
+	userModel.insertcar(car, function(status){
 		
 		if(status){
-			response.redirect('/home');
+			response.redirect('/adminhome');
 		}else{
-			response.redirect('/user/adduser');
+			response.redirect('/add/newcar');
 		}
 	});
 	
