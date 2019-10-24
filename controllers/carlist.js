@@ -4,20 +4,10 @@ var userModel = require('./../models/user-model');
 var router = express.Router();
 
 
-/*router.get('*', function(request, response, next){
-
-	if(request.cookies['username'] != null){
-		next();
-	}else{
-		response.redirect('/logout');
-	}
-
-});*/
-
-router.get('/adduser', function(request, response){
-	response.render("user/adduser");
+router.get('/', function(request, response){
+	response.render("newcar/carlist");
 });
-router.post('/adduser', function(request, response){
+router.post('/carlist', function(request, response){
 
 	var user = {
 		username: request.body.username,
