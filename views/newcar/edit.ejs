@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Carlist</title>
+</head>
+<body>
+	<h1>Carlist</h1>
+	<a href="/home">Back</a> | 
+	<a href="/logout">logout</a>
+	
+	<form method="post">
+	<table border="1">
+		<tr>
+			<td>NAME</td>
+			<td><input type="text" name="name" value="<%= name %>"></td>
+		</tr>
+		<tr>
+			<td>cost</td>
+			<td><input type="text" name="cost" value="<%= cost %>"></td>
+		</tr>
+		<tr>
+			<td>category</td>
+			<td><input type="text" name="category" value="<%= category %>"></td>
+		</tr>
+		
+		<tr>
+			<td><input type="submit" name="submit" value="update"></td>
+			<td></td>
+		</tr>
+	</table>
+</form>
+
+</body>
+</html>
