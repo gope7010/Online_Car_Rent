@@ -35,8 +35,9 @@ module.exports = {
 			}
 		});	
 	},
+
 	validateadmin: function(user, callback){
-		var sql ="select * from admin where name=? and password=?";
+		var sql ="select * from admin where username=? and password=?";
 		db.getResults(sql, [user.username, user.password], function(result){
 
 			if(result.length >0){
@@ -46,8 +47,9 @@ module.exports = {
 			}
 		});	
 	},
+
 	validateuser: function(user, callback){
-		var sql ="select * from user where name=? and password=?";
+		var sql ="select * from users where name=? and password=?";
 		db.getResults(sql, [user.username, user.password], function(result){
 
 			if(result.length >0){
@@ -83,8 +85,8 @@ module.exports = {
 	},
 	insertuser: function(user, callback){
 
-		var sql ="insert into user values('', ?, ?)";
-		db.execute(sql, [user.username, user.password], function(status){
+		var sql ="insert into users (id,name,email,password) values('', ? , ? , ? )";
+		db.execute(sql, [user.username, user.email, user.password], function(status){
 			callback(status);
 		});
 	},

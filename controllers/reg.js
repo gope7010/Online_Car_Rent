@@ -7,11 +7,20 @@ router.get('/', function(request, response){
 });
 
 router.post('/', function(request, response){
-	
 	var user = {
 		username: request.body.username,
+		email: request.body.email,
 		password: request.body.password
 	};
+
+	userModel.insertuser(user, function(status){
+		
+		if(status){
+			response.redirect('/login/user');
+		}else{
+			response.redirect('/reg');
+		}
+	});
 	
 	
 });
